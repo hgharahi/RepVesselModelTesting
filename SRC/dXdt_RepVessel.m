@@ -5,6 +5,7 @@ C_met = Vessel.Params(9);  %% Myogenic signal coefficient
 C_HR = Vessel.Params(10);  %% Myogenic signal coefficient
 C0  = Vessel.Params(11);    %% Constant determining the half maximal saturation
 HR0  = Vessel.Params(12);    %% Heart rate threshold
+C_CAT = Vessel.Params(13); %% Extrinsic catecholamine signal coefficient
 
 D = X(1);
 A = X(2);
@@ -26,7 +27,7 @@ switch Vessel.State
         
         S_HR = C_HR*max(Vessel.HR-HR0,0);
         
-        S = S_myo - S_meta - S_HR + C0;
+        S = S_myo - S_meta - S_HR - C_CAT*Vessel.CAT + C0;
         
         A_total = 1/(1 + exp(-S));
         

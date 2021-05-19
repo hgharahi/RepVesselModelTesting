@@ -6,14 +6,14 @@ h = figure; hold on;
 Rn = Control.mid.RA(4);
 
 
-pl(1,1) = plot(Control.mid.Ptm(1:5), Control.mid.D,'o-','linewidth',1.5,'Color',[0    0.4470    0.7410]); hold on
-pl(1,2) = plot(Control.endo.Ptm(1:5), Control.endo.D,'o--','linewidth',1.5,'Color',[0    0.4470    0.7410]);
-pl(1,3) = plot(Control.epi.Ptm(1:5), Control.epi.D,'o-.','linewidth',1.5,'Color',[0    0.4470    0.7410]);
+pl(1,1) = plot(Control.mid.Ptm, Control.mid.D,'o-','linewidth',1.5,'Color',[0    0.4470    0.7410]); hold on
+pl(1,2) = plot(Control.endo.Ptm, Control.endo.D,'o--','linewidth',1.5,'Color',[0    0.4470    0.7410]);
+pl(1,3) = plot(Control.epi.Ptm, Control.epi.D,'o-.','linewidth',1.5,'Color',[0    0.4470    0.7410]);
 
 
-pl(2,1) = plot(Anemia.mid.Ptm(1:5), Anemia.mid.D(1:5),'o-','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
-pl(2,2) = plot(Anemia.endo.Ptm(1:5), Anemia.endo.D(1:5),'o--','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
-pl(2,3) = plot(Anemia.epi.Ptm(1:5), Anemia.epi.D(1:5),'o-.','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
+pl(2,1) = plot(Anemia.mid.Ptm, Anemia.mid.D,'o-','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
+pl(2,2) = plot(Anemia.endo.Ptm, Anemia.endo.D,'o--','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
+pl(2,3) = plot(Anemia.epi.Ptm, Anemia.epi.D,'o-.','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
 
 
 pl(3,1) = plot(Dob.mid.Ptm(1:5), Dob.mid.D(1:5),'o-','linewidth',1.5,'Color',[0.9290    0.6940    0.1250]);

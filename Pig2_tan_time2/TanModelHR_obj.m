@@ -26,24 +26,26 @@ eval(['MetSignalC = Control.',layer,'.MetSignal;']);
 
 Dc = DexpC(4);
 Pc = PexpC(4);
+CAT = 0; %Existence of extrinsic catecholamine (dobutamine)
 
-[DmodC, AmodC , ~, ~, ~, ~, convC] = CarlsonModelTime(x, PexpC, DexpC, MetSignalC, Control.HR, Dc, Pc, state);
+[DmodC, AmodC , ~, ~, ~, ~, convC] = CarlsonModelTime(x, PexpC, DexpC, MetSignalC, Control.HR, Dc, Pc, CAT, state);
 
 %%%%------Passive and Fully active diameters
-[DpC, ~] = CarlsonModelTime(x, PexpC, DexpC, MetSignalC, Control.HR, Dc, Pc, 'passive');
-[DcC, ~] = CarlsonModelTime(x, PexpC, DexpC, MetSignalC, Control.HR, Dc, Pc, 'constricted');
+[DpC, ~] = CarlsonModelTime(x, PexpC, DexpC, MetSignalC, Control.HR, Dc, Pc, CAT, 'passive');
+[DcC, ~] = CarlsonModelTime(x, PexpC, DexpC, MetSignalC, Control.HR, Dc, Pc, CAT, 'constricted');
 
 % %%%%%%%%%%%%%% Anemia
 
 eval(['DexpA = Anemia.',layer,'.D;']);
 eval(['PexpA = Anemia.',layer,'.Ptm;']);
 eval(['MetSignalA = Anemia.',layer,'.MetSignal;']);
+CAT = 0; %Existence of extrinsic catecholamine (dobutamine)
 
-[DmodA, ~ , ~, ~, ~, ~, convA] = CarlsonModelTime(x, PexpA, DexpA, MetSignalA, Anemia.HR, Dc, Pc, state);
+[DmodA, ~ , ~, ~, ~, ~, convA] = CarlsonModelTime(x, PexpA, DexpA, MetSignalA, Anemia.HR, Dc, Pc, CAT, state);
 
 %%%%------Passive and Fully active diameters
-[DpA, ~] = CarlsonModelTime(x, PexpA, DexpA, MetSignalA, Anemia.HR, Dc, Pc, 'passive');
-[DcA, ~] = CarlsonModelTime(x, PexpA, DexpA, MetSignalA, Anemia.HR, Dc, Pc, 'constricted');
+[DpA, ~] = CarlsonModelTime(x, PexpA, DexpA, MetSignalA, Anemia.HR, Dc, Pc, CAT, 'passive');
+[DcA, ~] = CarlsonModelTime(x, PexpA, DexpA, MetSignalA, Anemia.HR, Dc, Pc, CAT, 'constricted');
 
 %%%%%%%%%%%%% Objective function
 DMod = [DmodC,	DmodA];

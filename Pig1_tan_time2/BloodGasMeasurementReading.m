@@ -36,6 +36,7 @@ BloodGasMeasurementsDob = [
 13.4	6.4     163     26      100     48.2	9.7     30
 13      4.9     167     23      100     38.1	9.6     29
 13.1	2.8     163     17      100     20.5	9.7     29
+13.1	2.8     163     17      100     20.5	9.7     29 %% Data for CPP 140 was missing. This is just a placeholder and will not be used!
 ];
 
 
@@ -51,7 +52,7 @@ T = 37 ;
 Viscosity = @(x) 2.03 * exp( (k0 - k3*T)*x - k2*T );
 % VisCorrection = @(x) 14.5583*x.^3 + 3.0897*x.^2 + 3.4796*x + 1.0000; % Curve fitted to curve in Fig. 7 of Pries et al paper.
 
-for j = 1:length(CPP)-1
+for j = 1:length(CPP)
     
     Control.ArtO2Cnt(j) =   BloodGasMeasurementsControl(6-j+1,1);
     Control.CVO2Cnt(j)  =   BloodGasMeasurementsControl(6-j+1,2);
@@ -72,14 +73,14 @@ for j = 1:length(CPP)-1
     Anemia.HCT(j)      =   BloodGasMeasurementsAnemia(6-j+1,8);
     
     
-    Dob.ArtO2Cnt(j) =   BloodGasMeasurementsDob(5-j+1,1);
-    Dob.CVO2Cnt(j)  =   BloodGasMeasurementsDob(5-j+1,2);
-    Dob.ArtPO2(j)   =   BloodGasMeasurementsDob(5-j+1,3);
-    Dob.CvPO2(j)    =   BloodGasMeasurementsDob(5-j+1,4);
-    Dob.ArtO2Sat(j) =   BloodGasMeasurementsDob(5-j+1,5);
-    Dob.CvO2Sat(j)  =   BloodGasMeasurementsDob(5-j+1,6);
-    Dob.Hgb(j)      =   BloodGasMeasurementsDob(5-j+1,7);
-    Dob.HCT(j)      =   BloodGasMeasurementsDob(5-j+1,8);   
+    Dob.ArtO2Cnt(j) =   BloodGasMeasurementsDob(6-j+1,1);
+    Dob.CVO2Cnt(j)  =   BloodGasMeasurementsDob(6-j+1,2);
+    Dob.ArtPO2(j)   =   BloodGasMeasurementsDob(6-j+1,3);
+    Dob.CvPO2(j)    =   BloodGasMeasurementsDob(6-j+1,4);
+    Dob.ArtO2Sat(j) =   BloodGasMeasurementsDob(6-j+1,5);
+    Dob.CvO2Sat(j)  =   BloodGasMeasurementsDob(6-j+1,6);
+    Dob.Hgb(j)      =   BloodGasMeasurementsDob(6-j+1,7);
+    Dob.HCT(j)      =   BloodGasMeasurementsDob(6-j+1,8);   
     
 end
 

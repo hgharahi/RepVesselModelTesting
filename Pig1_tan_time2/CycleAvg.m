@@ -1,6 +1,6 @@
 function [var_endo, var_mid, var_epi] = CycleAvg(test, var)
 
-CPP = [40 ,60, 80, 100, 120];
+CPP = [40 ,60, 80, 100, 120, 140];
 
 for i = 1:length(CPP)
     

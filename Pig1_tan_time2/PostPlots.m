@@ -10,11 +10,11 @@ y = x;
 
 h = figure;
 
-pl(1) = plot(Control.Ptm(1:5), Control.Dmod/100,'-s','linewidth',1.5,'Color',[0    0.4470    0.7410]); hold on
-pl(2) = plot(Control.Ptm(1:5), Control.Dexp/100,'o','linewidth',2.5,'Color',[0    0.4470    0.7410]);
+pl(1) = plot(Control.Ptm, Control.Dmod/100,'-s','linewidth',1.5,'Color',[0    0.4470    0.7410]); hold on
+pl(2) = plot(Control.Ptm, Control.Dexp/100,'o','linewidth',2.5,'Color',[0    0.4470    0.7410]);
 
-pl(3) = plot(Anemia.Ptm(1:5), Anemia.Dmod/100,'-s','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
-pl(4) = plot(Anemia.Ptm(1:5), Anemia.Dexp/100,'o','linewidth',2.5,'Color',[0.8500    0.3250    0.0980]);
+pl(3) = plot(Anemia.Ptm, Anemia.Dmod/100,'-s','linewidth',1.5,'Color',[0.8500    0.3250    0.0980]);
+pl(4) = plot(Anemia.Ptm, Anemia.Dexp/100,'o','linewidth',2.5,'Color',[0.8500    0.3250    0.0980]);
 
 pl(5) = plot(Dob.Ptm(1:5), Dob.Dmod/100,'-s','linewidth',1.5,'Color',[0.9290    0.6940    0.1250]);
 pl(6) = plot(Dob.Ptm(1:5), Dob.Dexp/100,'o','linewidth',2.5,'Color',[0.9290    0.6940    0.1250]);

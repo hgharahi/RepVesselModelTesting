@@ -12,7 +12,7 @@ switch state
             
             case 'ATP'
                 
-                S0 = x(13);
+                S0 = x(14);
                 
             otherwise
                 
@@ -29,19 +29,21 @@ switch state
         eval(['Control.Dexp = Control.',layer,'.D;']);
         eval(['Control.Ptm = Control.',layer,'.Ptm;']);
         eval(['MetSignalC = Control.',layer,'.MetSignal;']);
-        
+        CAT = 0; %Existence of extrinsic catecholamine (dobutamine)
+
         Dc = Control.Dexp(4);
         Pc = Control.Ptm(4);
         
-        [Control.Dmod, Control.Act, Control.Smyo, Control.Smeta, Control.SHR] = CarlsonModelTime(x, Control.Ptm, Control.Dexp, MetSignalC, Control.HR, Dc, Pc, state);
+        [Control.Dmod, Control.Act, Control.Smyo, Control.Smeta, Control.SHR, ~] = CarlsonModelTime(x, Control.Ptm, Control.Dexp, MetSignalC, Control.HR, Dc, Pc, CAT, state);
         
         % %%%%%%%%%%%%%% Anemia
         
         eval(['Anemia.Dexp  = Anemia.',layer,'.D;']);
         eval(['Anemia.Ptm = Anemia.',layer,'.Ptm;']);
         eval(['MetSignalA = Anemia.',layer,'.MetSignal;']);
-        
-        [Anemia.Dmod, Anemia.Act, Anemia.Smyo, Anemia.Smeta, Anemia.SHR] = CarlsonModelTime(x, Anemia.Ptm, Anemia.Dexp, MetSignalA, Anemia.HR, Dc, Pc, state);
+        CAT = 0; %Existence of extrinsic catecholamine (dobutamine)
+
+        [Anemia.Dmod, Anemia.Act, Anemia.Smyo, Anemia.Smeta, Anemia.SHR, ~] = CarlsonModelTime(x, Anemia.Ptm, Anemia.Dexp, MetSignalA, Anemia.HR, Dc, Pc, CAT, state);
         
         % %%%%%%%%%%%%%% Dob+Anemia
         

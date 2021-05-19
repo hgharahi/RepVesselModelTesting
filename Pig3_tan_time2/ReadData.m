@@ -1,8 +1,8 @@
 %% Reads data from files
 clear;
-load AllResults_Controls.mat
-load AllResults_HDs.mat
-load AllResults_Dobs.mat
+load AllResults_Control.mat
+load AllResults_HD.mat
+load AllResults_Dob.mat
 %% Reading data / modeling / analysis based on Pzf data from John Tune:
 
 SpecimenPairs = [2,2;

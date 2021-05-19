@@ -5,10 +5,6 @@ CPP = [40 ,60, 80, 100, 120, 140];
 
 [Q_endo, Q_mid, Q_epi] = CycleAvg(test,'Q1');
 
-% this pigs does not have blood gas measurements, thus CPP140 is deleted
-% from analysis for now!
-CPP(end) = [];
-
 % [V_endo, V_mid, V_epi] = CycleAvg(test,'V1');
 Q_total = Q_endo + Q_mid + Q_epi;
 

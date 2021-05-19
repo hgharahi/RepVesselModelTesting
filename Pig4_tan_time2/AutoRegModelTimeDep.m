@@ -29,9 +29,9 @@ for k = 1:1
     xmid0  = [ 13.47879504 127.39719225  22.55964529  -8.35422560 171.82273144 159.34179177 439.38785178   4.32452825   1.00000000   0.00685243  -1.64377780 ];
     xepi0  = [  1.49443503  92.12540966   6.82916498  -8.85825712  72.25126636 150.54263630 345.52985900   3.77609697   0.00031759   0.09220873   3.82138488 ];
  
-    %     Cp,     Ap,     Bp,                phi_p,      phi_m,      Cm,    rho         C_myo,      C_met,   C_HR,     C0   HR0
-    xl = [.50      Apmin     0.1*BPmax       -20          50.44      10     1.00e2       0.1          0      0.001       -10.0  50 ];
-    xu = [40.0      1.5*Apmin    BPmax        30          175.44     200    4.50e2       100          1      0.1      10.0   100];
+    %     Cp,     Ap,     Bp,                phi_p,      phi_m,      Cm,    rho         C_myo,      C_met,   C_HR,     C0       C_CAT   HR0
+    xl = [.50      Apmin     0.1*BPmax       -20          100      10     1.00e2       0.1          0      0.001     -10.0     0     50 ];
+    xu = [40.0      1.5*Apmin    BPmax        30          200     200    4.50e2       100          1      0.1      10.0       10      100];
     
     switch MetSignal
         
@@ -39,16 +39,16 @@ for k = 1:1
             
             % y = [Cp, Ap, Bp, phi_p, phi_m, Cm, rho_m, C_myo, C_met, C_HR, C0, S0];
             
-            xl(13) = 0.01; %S00
-            xu(13) = 0.04;  %So
-            xendo0(13) = 0.03;
-            xmid0(13) = 0.03;
-            xepi0(13) = 0.03;
-            nvar = 13;
+            xl(14) = 0.01; %S00
+            xu(14) = 0.04;  %So
+            xendo0(14) = 0.03;
+            xmid0(14) = 0.03;
+            xepi0(14) = 0.03;
+            nvar = 14;
             
         otherwise
             
-            nvar = 12;
+            nvar = 13;
             
     end
     
@@ -63,8 +63,11 @@ for k = 1:1
 %    gs = GlobalSearch;
 %    ms = MultiStart;
 
+    p = gcp('nocreate'); % If no pool, do not create new one.
+    if isempty( p )==1
     parpool(36);
-
+    end
+    
     pctRunOnAll warning('off', 'all'); 
 
 
